@@ -528,11 +528,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\ChatBot\\ChatBot.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\ChatBot.csproj",
       "projectName": "ChatBot",
-      "projectPath": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\ChatBot\\ChatBot.csproj",
+      "projectPath": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\ChatBot.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\ChatBot\\obj\\",
+      "outputPath": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
