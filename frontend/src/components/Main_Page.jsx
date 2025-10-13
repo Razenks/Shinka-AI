@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import axios from "axios";
-
+import ReactMarkdown from 'react-markdown'; // Importe ReactMarkdown
+import rehypeRaw from 'rehype-raw';     // Importe rehypeRaw para HTML cru, se necessário
 
 export default function ChatbotPage() {
     const [messages, setMessages] = useState([
-        { sender: "bot", text: "Hello! How can I help you today?" }
+        { sender: "bot", text: "Olá! Como seu TechMentor, estou pronto para ajudar com qualquer questão de TI." }
     ]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
 
     const handleSend = async () => {
         if (!input.trim()) return;
@@ -24,7 +24,7 @@ export default function ChatbotPage() {
 
         try {
             const response = await axios.post(
-                'http://localhost:5261/api/chat/ask',
+                'http://localhost:5224/api/chat/ask', 
                 { question: userInput }
             );
 
@@ -33,13 +33,12 @@ export default function ChatbotPage() {
             setMessages(prevMessages => [...prevMessages, { sender: "bot", text: aiResponseText }]);
 
         } catch (error) {
-            console.error("Error conecting to the AI service:", error);
-            setMessages(prevMessages => [...prevMessages, { sender: "bot", text: "Sorry, there was an error connecting to the AI service." }]);
+            console.error("Error connecting to the AI service:", error);
+            setMessages(prevMessages => [...prevMessages, { sender: "bot", text: "Desculpe, houve um erro ao conectar ao serviço de IA. Por favor, tente novamente." }]);
         } finally {
             setIsLoading(false);
         }
     };
-
 
     return (
         <div className="flex flex-col h-screen bg-gradient-to-b from-black via-gray-900 to-purple-900 text-gray-100 font-sans">
@@ -47,7 +46,6 @@ export default function ChatbotPage() {
             <header className="bg-black/40 backdrop-blur-md border-b border-gray-700 p-4 text-center text-2xl font-semibold text-purple-400 shadow-md">
                 Shinka Chat
             </header>
-
 
             {/* Chat Area */}
             <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-gray-800">
@@ -62,7 +60,11 @@ export default function ChatbotPage() {
                                 : "bg-gray-800 text-gray-100 rounded-bl-none"
                                 }`}
                         >
-                            {msg.text}
+                            {/* AQUI É ONDE USAMOS O ReactMarkdown */}
+                            {msg.sender === "user" 
+                                ? msg.text 
+                                : <ReactMarkdown rehypePlugins={[rehypeRaw]}>{msg.text}</ReactMarkdown>
+                            }
                         </div>
                     </div>
                 ))}
@@ -74,7 +76,6 @@ export default function ChatbotPage() {
                     </div>
                 )}
             </div>
-
 
             {/* Input Area */}
             <div className="flex items-center gap-2 p-4 bg-black/60 border-t border-gray-800">

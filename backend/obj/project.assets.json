@@ -528,9 +528,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\ChatBot.csproj",
-      "projectName": "ChatBot",
-      "projectPath": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\ChatBot.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\backend.csproj",
+      "projectName": "backend",
+      "projectPath": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\usuario\\Documents\\Shinka_AI\\backend\\obj\\",
       "projectStyle": "PackageReference",
